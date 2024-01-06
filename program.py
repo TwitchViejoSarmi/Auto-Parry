@@ -4,30 +4,30 @@ os.system("cls")
 
 try:
     import numpy as np
-    print("NumPy: INSTALED")
+    print("NumPy: INSTALLED")
 except ImportError:
-    print("NumPy: NOT INSTALED")
+    print("NumPy: NOT INSTALLED")
     dependencies.append('numpy')
 
 try:
     import pyautogui
-    print("PyAutoGUI: INSTALED")
+    print("PyAutoGUI: INSTALLED")
 except ImportError:
-    print("PyAutoGUI: NOT INSTALED")
+    print("PyAutoGUI: NOT INSTALLED")
     dependencies.append('pyautogui')
 
 try:
     import keyboard
-    print("keyboard: INSTALED")
+    print("keyboard: INSTALLED")
 except ImportError:
-    print("keyboard: NOT INSTALED")
+    print("keyboard: NOT INSTALLED")
     dependencies.append('keyboard')
 
 try:
     import cv2
-    print("opencv-python: INSTALED")
+    print("opencv-python: INSTALLED")
 except ImportError:
-    print("opencv-python: NOT INSTALED")
+    print("opencv-python: NOT INSTALLED")
     dependencies.append('opencv-python')
 
 if (len(dependencies) != 0):
