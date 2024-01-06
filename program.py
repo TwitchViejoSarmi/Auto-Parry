@@ -31,7 +31,7 @@ except ImportError:
     dependencies.append('opencv-python')
 
 if (len(dependencies) != 0):
-    print("Please copy and paste the next lines of code individually on a terminal of your and restart the program:")
+    print("Please copy and paste the next lines of code individually on a terminal of your computer and restart the program:")
     for library in dependencies:
         print("pip install ", library)
     os.system("pause")
