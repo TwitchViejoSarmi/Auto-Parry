@@ -1,9 +1,58 @@
+import os
+dependencies = []
+os.system("cls")
+
+try:
+    import numpy as np
+    print("NumPy: INSTALED")
+except ImportError:
+    print("NumPy: NOT INSTALED")
+    dependencies.append('numpy')
+
+try:
+    import pyautogui
+    print("PyAutoGUI: INSTALED")
+except ImportError:
+    print("PyAutoGUI: NOT INSTALED")
+    dependencies.append('pyautogui')
+
+try:
+    import keyboard
+    print("keyboard: INSTALED")
+except ImportError:
+    print("keyboard: NOT INSTALED")
+    dependencies.append('keyboard')
+
+try:
+    import cv2
+    print("opencv-python: INSTALED")
+except ImportError:
+    print("opencv-python: NOT INSTALED")
+    dependencies.append('opencv-python')
+
+if (len(dependencies) != 0):
+    print("Please copy and paste the next lines of code individually on a terminal of your and restart the program:")
+    for library in dependencies:
+        print("pip install ", library)
+    os.system("pause")
+else:
+    os.system("pause")
+    os.system("cls")
+
 import cv2
 import numpy as np
 import pyautogui
 import keyboard
-import os
 
+"""
+    Function that finds the ball on the screen.
+    
+    Args:
+        frame (Any): A numpy array that contains the frame to analyize.
+    Returns:
+        tuple: The coordinates and the width and height of the ball detected.
+
+"""
 def find_ball(frame):
     # Define the lower and upper limits for the color red in RGB
     lower_red = np.array([100, 0, 0])
@@ -28,6 +77,8 @@ def find_ball(frame):
 
 """
     Function that sets the zone that's going to be read.
+    Returns:
+        Any: The screen recording.
 """
 def read_screen():
     # Obtain the dimensions of the screen.
@@ -51,6 +102,9 @@ def read_screen():
 
 """
     Function that automatically sets the size of the ball to parry based on the screen size.
+
+    Returns:
+        Tuple: The minimum width and height of the ball to parry.
 """
 def get_dimensions():
     # Obtain the dimensions of the screen.
@@ -60,27 +114,37 @@ def get_dimensions():
     screen_width = screen_width // 2
     screen_height = screen_height // 2
 
-    # Calculate the minimun dimensions of the ball to parry.
+    # Calculate the minimum dimensions of the ball to parry.
     w_threshold = screen_width * 0.13
     h_threshold = screen_height * 0.23
 
     return w_threshold, h_threshold
 
+
+"""
+    Function that makes the Auto Parry.
+
+    Args:
+        w_threshold (float): The minimum width of the ball.
+        h_threshold (float): The minimum height of the ball.
+"""
 def auto_parry(w_threshold, h_threshold):
-    screen = read_screen()
-    frame = np.array(screen)
+    screen = read_screen() # Get the screen.
+    frame = np.array(screen) # Convert the screen to a readable frame.
     ball = find_ball(frame)
     x, y, w, h = (0, 0, 0, 0)
+    # If there's the ball.
     if ball:
-        x, y, w, h = ball
+        x, y, w, h = ball # Get the dimensions of the ball.
 
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)  # Dibuja un cuadrado verde alrededor de la pelota
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)  # Draw a green rectangle around the ball
 
-        # Agregar texto con los valores de ancho y altura dentro del rectángulo
-        texto = f'Ancho: {w}, Altura: {h}'
+        # Add text with the width and height values:
+        texto = f'Width: {w}, Height: {h}'
         cv2.putText(frame, texto, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
-    cv2.imshow('Red Ball Detection', frame)
+    cv2.imshow('Red Ball Detection', frame) # Show the screen
 
+    # If the size of the ball surprass the threshold.
     if (w >= w_threshold and h >= h_threshold):
         keyboard.press('f')
     else:
