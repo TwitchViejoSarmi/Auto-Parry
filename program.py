@@ -154,7 +154,14 @@ def auto_parry(w_threshold, h_threshold):
     Function that makes the main menu.
 """
 def menu():
-    print("AUTO PARRY")
+    width = 50
+
+    print('=' * width)
+    print(f"{' ' * ((width - 10) // 2)} AUTO PARRY")
+    print('=' * width)
+
+    print("\nPlease read the README file for more information.\n")
+
     print("[8] Start")
     print("[0] Exit")
 

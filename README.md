@@ -8,6 +8,11 @@
 2. This program was made in the Windows Operating System and has not been tested (yet) with other Operating Systems.
 3. The program requires having some Python libraries installed for its operation. The same program will help you tell them which libraries they are missing and how to install them. It is recommended to use tools such as YouTube to learn its correct installation.
 4. This program is **NOT** **100% accurate**, it tends to have errors in detecting the ball at higher speeds and when nearby objects or entities with a similar color are found.
+### Requirements
+1. Have Python installed.
+2. Open the game in full screen so that the taskbar cannot be seen (this is for the correct functioning of the program).
+3. Play in first person.
+4. Enable ball tracking within the game. You can enable it in the game by pressing the **R** key.
 ### Functioning
 * Running the `program.py` file will check the installation of the libraries. Those that are installed will appear as **INSTALLED** and those that are not as **NOT INSTALLED**:
 
@@ -37,6 +42,11 @@
 2. Este programa se realizó en el Sistema Operativo Windows y no se han hecho pruebas (aún) con otros Sistemas Operativos.
 3. El programa requiere de tener unas librerías de Python instaladas para su funcionamiento. El mismo programa les ayudará a indicarles qué librerías les faltan y cómo instalarlas. Se recomienda hacer uso de herramientas como Youtube para aprender su correcta instalación.
 4. Este programa **NO** es **100% preciso**, tiende a tener fallos en la detección de la bola a mayores velocidades y cuando se encuentren objetos o entidades cercanas con un color parecido.
+### Requisitos
+1. Tener instalado Python.
+2. Abrir el juego en pantalla completa de tal forma que no se pueda ver la barra de tareas (esto para el correcto funcionamiento del programa).
+3. Jugar en primera persona.
+4. Habilitar el seguimiento de la pelota dentro del juego. Lo pueden habilitar en partida presionando la tecla **R**.
 ### Funcionamiento
 * Al ejecutar el archivo `program.py` se comprobará la instalación de las librerías. Las que se encuentren instaladas, aparecerán como **INSTALLED** y las que no como **NOT INSTALLED**:
 
