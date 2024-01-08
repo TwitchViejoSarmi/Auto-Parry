@@ -69,7 +69,7 @@ def find_ball(frame):
         x, y, w, h = cv2.boundingRect(contour)
         
         # Add a condition to consider only contours with w and h greater than 30
-        if w > 30 and h > 30:
+        if w > 50 and h > 50:
             return (x, y, w, h)
     
     return None
@@ -115,8 +115,8 @@ def get_dimensions():
     screen_height = screen_height // 2
 
     # Calculate the minimum dimensions of the ball to parry.
-    w_threshold = screen_width * 0.13
-    h_threshold = screen_height * 0.23
+    w_threshold = screen_width * 0.10
+    h_threshold = screen_height * 0.18
 
     return w_threshold, h_threshold
 
